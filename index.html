@@ -11,41 +11,50 @@
     <script src="https://kit.fontawesome.com/644e88eb26.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Income Tax for employed couples</title>
+    <title>Income Tax</title>
 </head>
 
 <body>
-    <h1>Income Tax Computations for employed couples in Ireland</h1>
+    <h1>Income Tax Computations for single employed person in Ireland</h1>
 
     <div>
         <h3><p>
-            This page intends to calculate and compare Income Tax for separate and joint assessments for employed couples in Ireland
+            This page intends to calculate Income Tax for a single employee, employed in Ireland
         </p></h3>
     </div>
 
     <div>
-        Please input the highest salary income (anually):
-        <input id="highestSalary" type="number">
+        Please input gross salary income (anually):
+        <input id="selfSalary" type="number">
     </div>
 
-    <div>
-        What is the other income (annualy):
-        <input id="lowestSalary" type="number">
-    </div>
 <br>
     <div>
-        Which of these BIK do you have? please input as requested:
-        <div>Motor Car
+        Which of these common BIK (Benefit-in-Kind) have you received? please input as requested:
+        <div>Motor Car:
             <div>Original Market Value of the Car €:
-            <input id="bikCar-OMV" type="number">
+            <input id="bikCarOMV" type="number">
             </div>
             <div>Business Travel in km:
-            <input id="bikCar-km" type="number">
+            <input id="bikCarkm" type="number">
             </div>
         </div>
-
+        <div>Employer Provided Accommodation:
+            <div>
+                Annual rent paid by Employer (less any contribution by Employee). Total:
+                <input id="bikRent" type="number">
+            </div>
+        </div>
+        <div>Employer provides of service or expenses (including any kind of: gym, sport club, medical insurance and personal telephone):
+            <input id="bikExp" type="number">
+        </div>
+<br>
+    <div>
+        Gross Income:
+        <!-- <output id="grossIncome"></output>  -->
+        <button data-type="submit">Calculate</button>
+        
     </div>
-
 
 
     <script src="assets/js/script.js"></script>
