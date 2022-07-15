@@ -1,5 +1,8 @@
 console.log('connected!');
 
+document.addEventListener("DOMContentLoaded", function() {     // DOMContentLoaded = fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+    console.log('DOM fully loaded and parsed')
+})
 
 let selfSalary;
 
@@ -9,11 +12,10 @@ let bikCarkm;
 let bikRent;
 let bikExp;
 
-let totalTax;
-
+let bikCar;
 function calculatebikCar() {
-    //console.log(selfSalary);
-    let bikCar;
+    //console.log(selfSalary); 
+    
     if (bikCarkm <= 24000) {
         bikCar = (bikCarOMV * 0.3);
     } else if (bikCarkm <= 32000) {
@@ -26,38 +28,45 @@ function calculatebikCar() {
         bikCar = (bikCarOMV * 0.08);
     }
 }
+calculatebikCar();
 
-let bikCar;
+
 let grossIncome;
 function calculateGrossIncome() {
-    let grossIncome = (selfSalary + bikCar + bikRent + bikExp);
+    grossIncome = (selfSalary + bikCar + bikRent + bikExp);
 }
-
+calculateGrossIncome();
 // deductions
 
-
+let taxBand;
+let balanceTaxBand;
+let totalTax;
 function calculateTaxBands() {
     if (grossIncome >= 35300) {
-        let taxBand = (grossIncome * 0.2);
-        let balanceTaxBand = (35300 - taxBand) * 0.4;
+        taxBand = (grossIncome * 0.2);
+        balanceTaxBand = (35300 - taxBand) * 0.4;
         
         totalTax = taxBand + balanceTaxBand;
     } else {
         totalTax = (grossIncome * 0.2);
     }
 }
+calculateTaxBands();
+
 
 let taxCredits = 3300;
 let prsi;
+let weeklySalary;
 function calculatePrsi() {
-    let weeklySalary = parseFloat(grossIncome / 52);
-    if (weeklySalary >= 352.01) {
-        
-        prsi = (weeklySalary * 0.04);
+    weeklySalary = parseFloat(grossIncome / 52);
+    if (weeklySalary >= 352.01) {        
+        prsi = (weeklySalary*0.04);
     } else {
         prsi = 0;
     }
 }
+calculatePrsi();
+
 
 let usc;
 function calculateUsc() {
@@ -72,7 +81,10 @@ function calculateUsc() {
         usc = parseFloat(grossIncome * 0.08);
     }
 }
+calculateUsc();
 
+let taxDue;
+let result;
 function calculateTaxDue() {
     selfSalary = parseInt(document.getElementById('selfSalary').value);
 
@@ -82,18 +94,13 @@ function calculateTaxDue() {
     bikRent = parseInt(document.getElementById('bikRent').value);
     bikExp = parseInt(document.getElementById('bikExp').value);
 
-    calculatebikCar();
-    calculateGrossIncome();
-    calculateTaxBands();
-    calculatePrsi();
-    calculateUsc()
-
-
     let button = document.getElementById('button');
     button.addEventListener('click', button);
 
-    let taxDue = totalTax - taxCredits - prsi - usc;
+    taxDue = totalTax - taxCredits - prsi - usc;
     result = taxDue < 0 ? "Tax to be repayable" : "Tax Due";
     console.log(result, taxDue);
     document.getElementById('taxDue').innerHTML = taxDue;
 }
+
+calculateTaxDue()
