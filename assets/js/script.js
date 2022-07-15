@@ -1,58 +1,67 @@
+console.log('connected!');
 
 
-let selfSalary = parseInt(document.getElementById('selfSalary').value);
+let selfSalary;
 
-let bikCarOMV = parseInt(document.getElementById('bikCarOMV').value);    
-let bikCarkm = parseInt(document.getElementById('bikCarkm').value);
+let bikCarOMV;
+let bikCarkm;
 
-let bikRent = parseInt(document.getElementById('bikRent').value);
-let bikExp = parseInt(document.getElementById('bikExp').value);
+let bikRent;
+let bikExp;
+
+let totalTax;
 
 function calculatebikCar() {
+    //console.log(selfSalary);
     let bikCar;
     if (bikCarkm <= 24000) {
-    bikCar = (bikCarOMV * 0.3);
+        bikCar = (bikCarOMV * 0.3);
     } else if (bikCarkm <= 32000) {
-    bikCar = (bikCarOMV * 0.24);
+        bikCar = (bikCarOMV * 0.24);
     } else if (bikCarkm <= 40000) {
-    bikCar = (bikCarOMV * 0.18);
+        bikCar = (bikCarOMV * 0.18);
     } else if (bikCarkm <= 48000) {
-    bikCar = (bikCarOMV * 0.12);
+        bikCar = (bikCarOMV * 0.12);
     } else {
-    bikCar = (bikCarOMV * 0.08);
+        bikCar = (bikCarOMV * 0.08);
     }
 }
 
+let bikCar;
+let grossIncome;
 function calculateGrossIncome() {
     let grossIncome = (selfSalary + bikCar + bikRent + bikExp);
 }
 
 // deductions
 
+
 function calculateTaxBands() {
     if (grossIncome >= 35300) {
         let taxBand = (grossIncome * 0.2);
         let balanceTaxBand = (35300 - taxBand) * 0.4;
-        let totalTax = taxBand + balanceTaxBand;
-    } else { 
+        
+        totalTax = taxBand + balanceTaxBand;
+    } else {
         totalTax = (grossIncome * 0.2);
     }
 }
 
 let taxCredits = 3300;
-
+let prsi;
 function calculatePrsi() {
     let weeklySalary = parseFloat(grossIncome / 52);
     if (weeklySalary >= 352.01) {
-        let prsi;
+        
         prsi = (weeklySalary * 0.04);
     } else {
         prsi = 0;
     }
 }
 
+let usc;
 function calculateUsc() {
-    let usc;
+    
     if (grossIncome <= 12012) {
         usc = parseFloat(grossIncome * 0.005);
     } else if (grossIncome <= 20687) {
@@ -65,17 +74,26 @@ function calculateUsc() {
 }
 
 function calculateTaxDue() {
+    selfSalary = parseInt(document.getElementById('selfSalary').value);
+
+    bikCarOMV = parseInt(document.getElementById('bikCarOMV').value);
+    bikCarkm = parseInt(document.getElementById('bikCarkm').value);
+
+    bikRent = parseInt(document.getElementById('bikRent').value);
+    bikExp = parseInt(document.getElementById('bikExp').value);
+
+    calculatebikCar();
+    calculateGrossIncome();
+    calculateTaxBands();
+    calculatePrsi();
+    calculateUsc()
+
+
+    let button = document.getElementById('button');
+    button.addEventListener('click', button);
+
     let taxDue = totalTax - taxCredits - prsi - usc;
     result = taxDue < 0 ? "Tax to be repayable" : "Tax Due";
-    console.log(result);
+    console.log(result, taxDue);
+    document.getElementById('taxDue').innerHTML = taxDue;
 }
-
-
-// adding event listener
-
-document.addEventListener("Calculate", calculateGrossIncome());
-let button = document.getElementsByTagName("Calculate");
-
-
- 
-console.log('connected!')
