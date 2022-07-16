@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Poppins:wght@300&display=swap');
 
 h1 {
     text-align: center;
@@ -8,16 +8,16 @@ h1 {
 
 #image {
     height: 250px;
-    width: 90%;
+    max-width: 100%;
     padding: 0.5rem;
-
+    margin-bottom: 2px;
 }
 
 .center {
     
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    /*margin-right: auto;*/
     width: 75%;
     
 }
@@ -28,14 +28,26 @@ h1 {
 }
 
 #inputs {
+    font-family: 'Poppins', sans-serif;
     display: block;
-    border-radius: 18px;
-    /*border: 2px solid rgb(130, 130, 235);*/
+    border-radius: 18px;   
     background-color: #CAE9F5;
     padding: 20px;
     width: 600px;
-    text-align: center;
+    text-align: left;
     margin: auto;
+}
+
+
+/* styling input-box*/
+
+#selfSalary, #bikCarOMV, #bikCarkm, #bikRent, #bikExp {
+    margin-left: 10px;
+    width: 100px;
+    border: 1px solid rgb(182, 179, 179);
+    height: 25px;
+    padding: 1px;
+    
 }
 
 /* styling footer */
@@ -62,8 +74,59 @@ footer {
 
 .social-media i {
     font-size: 160%;
-    margin: 1%;
+    margin-bottom: 0;
+    margin-top: 0;
     padding: 1%;
     /*color: #3a3a3a;*/
     /*background-color: rgb(90, 72, 72);*/
+}
+
+
+
+
+/* media queries */
+
+/* for larger to medium screens size up to 1100px */
+
+@media screen and (max-width: 1100px) {
+    #message {
+        font-size: 100%;
+    }
+
+    #logo {
+        font-size: 80%;
+    }
+}
+
+
+/* for medium screen sizes 850px and below */
+
+@media screen and (max-width: 850px) {
+
+    #message {
+        width: 50%;
+        margin: 0 auto;
+
+    }
+
+    #logo {
+        font-size: 60%;
+    }
+
+    #inputs {
+        border-radius: 18px;        
+        background-color: #CAE9F5;
+        padding: 20px;
+        width: 250px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #image {
+        height: 250px;
+        width: 110%;
+        padding: 0.5rem;
+    
+    }
+
 }
