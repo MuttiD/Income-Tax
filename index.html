@@ -14,48 +14,93 @@
     <title>Income Tax</title>
 </head>
 
+
+
 <body>
-    <h1>Income Tax Computations for single employed person in Ireland</h1>
+    <header>
+        <h1>Income Tax Computations for single employed person in Ireland</h1>
+    </header>
 
-    <div>
-        <h3><p>
-            This page intends to calculate Income Tax for a single employee, employed in Ireland
-        </p></h3>
-    </div>
+    <section id="image">
+        <img src="/assets/images/tax_coins_smaller.jpg" alt="coins" class="center">
+    </section>
 
-    <div>
-        Please input gross salary income (anually):
-        <input id="selfSalary" type="number">
-    </div>
-
-<br>
-    <div>
-        Which of these common BIK (Benefit-in-Kind) have you received? please input as requested:
-        <div>Motor Car:
-            <div>Original Market Value of the Car €:
-            <input id="bikCarOMV" type="number">
-            </div>
-            <div>Business Travel in km:
-            <input id="bikCarkm" type="number">
-            </div>
+    <section >        
+        <div id="message">
+            <h3>
+                This page intends to calculate Income Tax for a single employee, employed in Ireland
+            </h3>
+            <p> Please note it is designed for educational purposes only, and the results should not be viewed as the definitive tax computations.</p>
         </div>
-        <div>Employer Provided Accommodation:
-            <div>
-                Annual rent paid by Employer (less any contribution by Employee). Total:
-                <input id="bikRent" type="number">
+    </section>
+
+    <section id="inputs">
+
+        <div>
+            Please input gross salary income (anually):
+            <input id="selfSalary" type="number">
+        </div>
+    
+    <br>
+        <div>
+            Which of these common BIK (Benefit-in-Kind) have you received? please input as requested:
+            <div>Motor Car:
+                <div>Original Market Value of the Car €:
+                <input id="bikCarOMV" type="number">
+                </div>
+                <div>Business Travel in km:
+                <input id="bikCarkm" type="number">
+                </div>
             </div>
+            <div>Employer Provided Accommodation:
+                <div>
+                    Annual rent paid by Employer (less any contribution by Employee). Total:
+                    <input id="bikRent" type="number">
+                </div>
+            </div>
+            <div>Employer provides of service or expenses (including any kind of: gym, sport club, medical insurance and personal telephone):
+                <input id="bikExp" type="number">
+            </div>
+    <br>
+        <div>        
+            <button id="button" onclick="calculateTaxDue();">Calculate Income Tax</button>        
         </div>
-        <div>Employer provides of service or expenses (including any kind of: gym, sport club, medical insurance and personal telephone):
-            <input id="bikExp" type="number">
-        </div>
-<br>
-    <div>        
-        <button id="button" onclick="calculateTaxDue();">Calculate Income Tax</button>        
+    
+    <div>
+        <h3 id="taxDue">Income Tax: </h3>
     </div>
+    
+        <script src="assets/js/script.js"></script>
 
-<div>
-    <h3 id="taxDue">Income Tax: </h3>
-</div>
 
-    <script src="assets/js/script.js"></script>
+
+
+    </section>
+    
+
+    
 </body>
+
+<footer>
+    <h4>info@info.xom</h4>
+    <h4>www.example.exa</h4>
+    <br>
+    
+    <ul class="social-media">
+        <li>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter-square"></i></a>
+        </li>
+        <li>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube-square"></i></a>
+        </li>
+        <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+    </ul>
+
+<!-- font awesome script-->
+<script src="https://kit.fontawesome.com/644e88eb26.js" crossorigin="anonymous"></script>
+</footer>

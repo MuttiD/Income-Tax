@@ -85,6 +85,7 @@ calculateUsc();
 
 let taxDue;
 let result;
+let button;
 function calculateTaxDue() {
     selfSalary = parseInt(document.getElementById('selfSalary').value);
 
@@ -94,7 +95,7 @@ function calculateTaxDue() {
     bikRent = parseInt(document.getElementById('bikRent').value);
     bikExp = parseInt(document.getElementById('bikExp').value);
 
-    let button = document.getElementById('button');
+    button = document.getElementById('button');
     button.addEventListener('click', button);
 
     taxDue = totalTax - taxCredits - prsi - usc;
