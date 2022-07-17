@@ -28,14 +28,14 @@ function calculatebikCar() {
         bikCar = (bikCarOMV * 0.08);
     }
 }
-calculatebikCar();
+
 
 
 let grossIncome;
 function calculateGrossIncome() {
     grossIncome = (selfSalary + bikCar + bikRent + bikExp);
 }
-calculateGrossIncome();
+
 // deductions
 
 let taxBand;
@@ -51,7 +51,7 @@ function calculateTaxBands() {
         totalTax = (grossIncome * 0.2);
     }
 }
-calculateTaxBands();
+
 
 
 let taxCredits = 3300;
@@ -65,7 +65,7 @@ function calculatePrsi() {
         prsi = 0;
     }
 }
-calculatePrsi();
+
 
 
 let usc;
@@ -81,7 +81,7 @@ function calculateUsc() {
         usc = parseFloat(grossIncome * 0.08);
     }
 }
-calculateUsc();
+
 
 let taxDue;
 let result;
@@ -95,6 +95,15 @@ function calculateTaxDue() {
     bikRent = parseInt(document.getElementById('bikRent').value);
     bikExp = parseInt(document.getElementById('bikExp').value);
 
+    calculatebikCar();
+    calculateGrossIncome();
+    calculateTaxBands();
+    calculatePrsi();
+    calculateUsc();
+
+
+    console.log('VALUES: ', selfSalary, bikCarOMV, bikCarkm, bikRent, bikExp);
+
     button = document.getElementById('button');
     button.addEventListener('click', button);
 
@@ -105,3 +114,4 @@ function calculateTaxDue() {
 }
 
 calculateTaxDue()
+console.log(result, taxDue);
