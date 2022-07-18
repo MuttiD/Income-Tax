@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- font awesome and google fonts -->
-    
+    <!-- font awesome and google fonts -->    
     <link href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous" rel="stylesheet">
     <script src="https://kit.fontawesome.com/644e88eb26.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Income Tax</title>
 </head>
-
-
 
 <body>
     <header id="logo">
@@ -38,30 +35,43 @@
 
         <div>
             Please input gross salary income (anually):
-            <input id="selfSalary" type="number">
+            <input id="selfSalary" type="number" value="0">
         </div>
     
     <br>
         <div>
             Which of these common BIK (Benefit-in-Kind) have you received? please input as requested:
         <br>
-            <div>Motor Car:
-                <div>Original Market Value of the Car €:
-                <input id="bikCarOMV" type="number">
-                </div>
-                <div>Business Travel in km:
-                <input id="bikCarkm" type="number">
-                </div>
-            </div>
-            <div>Employer Provided Accommodation:
-                <div>
-                    Annual rent paid by Employer (less any contribution by Employee). Total:
-                    <input id="bikRent" type="number">
-                </div>
-            </div>
-            <div>Employer provides of service or expenses (including any kind of: gym, sport club, medical insurance and personal telephone):
-                <input id="bikExp" type="number">
-            </div>
+
+        <table>
+            <tr>
+                <th>Motor Car: </th>
+            </tr>
+
+            <tr>
+                <td>Original Market Value of the Car €: </td>
+                <td><input id="bikCarOMV" type="number" value="0"></td>
+            </tr>
+            <tr>
+                <td>Business Travel in km: </td>
+                <td><input id="bikCarkm" type="number" value="0"></td>
+            </tr>
+
+            <tr>
+                <th>Employer Provided Accommodation & Services: </th>
+            </tr>
+
+            <tr>
+                <td>Annual rent paid by Employer (less any contribution by Employee). Total in €: </td>
+                <td><input id="bikRent" type="number" value="0"></td>
+            </tr>
+
+            <tr>
+                <td>Service and Expenses (including any kind of: gym membership, sport club, medical insurance and personal telephone). Total in €: </td>
+                <td><input id="bikExp" type="number" value="0"></td>
+            </tr>
+
+        </table>
     <br>
         <div>        
             <button id="button" onclick="calculateTaxDue();">Calculate Income Tax</button>        
@@ -83,9 +93,8 @@
 </body>
 
 <footer>
-    <h4>info@info.xom</h4>
-    <h4>www.example.exa</h4>
-    <br>
+    <h4><p>info@info.com</p>
+        <p>www.example.exa</p></h4>
     
     <ul class="social-media">
         <li>

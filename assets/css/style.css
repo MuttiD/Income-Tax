@@ -6,26 +6,27 @@ h1 {
     font-family: 'Dosis', sans-serif;
 }
 
-#image {
-    height: 250px;
+
+/* styling image and message */
+
+#image {    
     max-width: 100%;
     padding: 0.5rem;
     margin-bottom: 2px;
 }
 
-.center {
-    
+.center {    
     display: block;
-    margin: 0 auto;
-    /*margin-right: auto;*/
-    width: 75%;
-    
+    margin: 0 auto;    
+    width: 75%;    
 }
 
 #message {
     text-align: center;
     font-family: 'Dosis', sans-serif;
 }
+
+/* styling input-box*/
 
 #inputs {
     font-family: 'Poppins', sans-serif;
@@ -37,9 +38,6 @@ h1 {
     text-align: left;
     margin: auto;
 }
-
-
-/* styling input-box*/
 
 #selfSalary, #bikCarOMV, #bikCarkm, #bikRent, #bikExp {
     margin-left: 10px;
@@ -59,7 +57,7 @@ h4 {
 }
 
 footer {
-    height: 150px;
+    /*height: 150px;*/
     background-color: rgb(244, 244, 252);
 }
 
@@ -73,14 +71,13 @@ footer {
 }
 
 .social-media i {
-    font-size: 160%;
+    font-size: 110%;
     margin-bottom: 0;
     margin-top: 0;
     padding: 1%;
     /*color: #3a3a3a;*/
     /*background-color: rgb(90, 72, 72);*/
 }
-
 
 
 
@@ -123,7 +120,7 @@ footer {
     }
 
     #image {
-        height: 250px;
+        
         width: 110%;
         padding: 0.5rem;
     

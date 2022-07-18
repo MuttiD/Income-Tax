@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {     // DOMContentLoad
     console.log('DOM fully loaded and parsed')
 })
 
+// declaring initial variables
+
 let selfSalary;
 
 let bikCarOMV;
@@ -13,10 +15,11 @@ let bikRent;
 let bikExp;
 
 let bikCar;
-function calculatebikCar() {
-    //console.log(selfSalary); 
+function calculatebikCar() {    
     
-    if (bikCarkm <= 24000) {
+    if (bikCarkm <= 0) {
+        bikCar = 0;
+    } else if (bikCarkm <= 24000) {
         bikCar = (bikCarOMV * 0.3);
     } else if (bikCarkm <= 32000) {
         bikCar = (bikCarOMV * 0.24);
@@ -29,22 +32,22 @@ function calculatebikCar() {
     }
 }
 
-
+// calculating gross income
 
 let grossIncome;
 function calculateGrossIncome() {
     grossIncome = (selfSalary + bikCar + bikRent + bikExp);
 }
 
-// deductions
+// calculating deductions
 
 let taxBand;
 let balanceTaxBand;
 let totalTax;
 function calculateTaxBands() {
     if (grossIncome >= 35300) {
-        taxBand = (grossIncome * 0.2);
-        balanceTaxBand = (35300 - taxBand) * 0.4;
+        taxBand = (35300 * 0.2);
+        balanceTaxBand = (grossIncome - 35300) * 0.4;
         
         totalTax = taxBand + balanceTaxBand;
     } else {
@@ -53,39 +56,54 @@ function calculateTaxBands() {
 }
 
 
-
 let taxCredits = 3300;
+
+// Pay Related Social Insurance
+
 let prsi;
 let weeklySalary;
 function calculatePrsi() {
     weeklySalary = parseFloat(grossIncome / 52);
     if (weeklySalary >= 352.01) {        
-        prsi = (weeklySalary*0.04);
+        prsi = (weeklySalary*0.04) * 52;
     } else {
         prsi = 0;
     }
 }
 
-
+// universal social charge
 
 let usc;
 function calculateUsc() {
     
-    if (grossIncome <= 12012) {
-        usc = parseFloat(grossIncome * 0.005);
-    } else if (grossIncome <= 20687) {
-        usc = parseFloat(grossIncome * 0.02);
+    if (grossIncome > 70044) {
+        usc = parseFloat(grossIncome - 70044) * 0.08 + (60.06 + 173.50 + 2221.07);
     } else if (grossIncome <= 70044) {
-        usc = parseFloat(grossIncome * 0.045);
-    } else {
-        usc = parseFloat(grossIncome * 0.08);
+        usc = parseFloat(grossIncome - 20687) * 0.045 + (60.06 + 173.50);
+    } else if (grossIncome <= 20687) {
+        usc = parseFloat(grossIncome - 12012) * 0.02 + 60.06;        
+    } else if (grossIncome <= 12012) {
+        usc = parseFloat(grossIncome * 0.005);
     }
+
+
+    //if (grossIncome <= 12012) {
+    //    usc1 = parseFloat(grossIncome * 0.005);
+    //} else if (grossIncome <= 20687) {
+    //    usc = parseFloat(grossIncome * 0.02);
+    //} else if (grossIncome <= 70044) {
+    //    usc = parseFloat(grossIncome * 0.045);
+    //} else {
+    //    usc = parseFloat(grossIncome * 0.08);
+    //}
 }
 
+// calculating tax due
 
 let taxDue;
 let result;
 let button;
+let roundTaxDue;
 function calculateTaxDue() {
     selfSalary = parseInt(document.getElementById('selfSalary').value);
 
@@ -102,16 +120,16 @@ function calculateTaxDue() {
     calculateUsc();
 
 
-    console.log('VALUES: ', selfSalary, bikCarOMV, bikCarkm, bikRent, bikExp);
+    // console.log('VALUES: ', selfSalary, bikCarOMV, bikCarkm, bikRent, bikExp);
 
     button = document.getElementById('button');
     button.addEventListener('click', button);
 
     taxDue = totalTax - taxCredits - prsi - usc;
-    result = taxDue < 0 ? "Tax to be repayable" : "Tax Due";
-    console.log(result, taxDue);
-    document.getElementById('taxDue').innerHTML = taxDue;
+    roundTaxDue = Math.round(taxDue);
+    result = roundTaxDue < 0 ? "Tax to be repayable" : "Tax Due";
+    console.log(result, roundTaxDue);
+    document.getElementById('taxDue').innerHTML = roundTaxDue;
 }
 
 calculateTaxDue()
-console.log(result, taxDue);
