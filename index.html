@@ -34,7 +34,7 @@
     <section id="inputs">
 
         <div>
-            Please input gross salary income (anually):
+            Please input your annual salary income in €:
             <input id="selfSalary" type="number" value="0">
         </div>
     
@@ -67,7 +67,7 @@
             </tr>
 
             <tr>
-                <td>Service and Expenses (including any kind of: gym membership, sport club, medical insurance and personal telephone). Total in €: </td>
+                <td>Service and Expenses (including any kind of: gym membership, sport club and personal telephone). Total in €: </td>
                 <td><input id="bikExp" type="number" value="0"></td>
             </tr>
 
@@ -78,7 +78,13 @@
         </div>
     
     <div>
-        <h3 id="taxDue">Income Tax: </h3>
+        <p>Gross Income € <span id="grossIncome"></span></p>
+        <p>PRSI € <span id="prsi"></span></p>
+        <p>USC € <span id="usc"></span></p>
+         
+        <h3>
+            You have a <span id="result"></span> of € <span id="taxDue"></span>.
+        </h3>
     </div>
     
         <script src="assets/js/script.js"></script>

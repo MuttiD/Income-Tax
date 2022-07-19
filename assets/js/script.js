@@ -55,10 +55,11 @@ function calculateTaxBands() {
     }
 }
 
-
+// Single Person + PAYE employee = 1,650 + 1,650 = 3,300 euros Tax Credits (as of Budget 2021) 
 let taxCredits = 3300;
 
 // Pay Related Social Insurance
+
 
 let prsi;
 let weeklySalary;
@@ -72,7 +73,7 @@ function calculatePrsi() {
 }
 
 // universal social charge
-
+// reference: https://www.revenue.ie/en/jobs-and-pensions/usc/calculating-usc.aspx
 let usc;
 function calculateUsc() {
     
@@ -86,16 +87,6 @@ function calculateUsc() {
         usc = parseFloat(grossIncome * 0.005);
     }
 
-
-    //if (grossIncome <= 12012) {
-    //    usc1 = parseFloat(grossIncome * 0.005);
-    //} else if (grossIncome <= 20687) {
-    //    usc = parseFloat(grossIncome * 0.02);
-    //} else if (grossIncome <= 70044) {
-    //    usc = parseFloat(grossIncome * 0.045);
-    //} else {
-    //    usc = parseFloat(grossIncome * 0.08);
-    //}
 }
 
 // calculating tax due
@@ -104,6 +95,7 @@ let taxDue;
 let result;
 let button;
 let roundTaxDue;
+let absTaxDue;
 function calculateTaxDue() {
     selfSalary = parseInt(document.getElementById('selfSalary').value);
 
@@ -119,17 +111,22 @@ function calculateTaxDue() {
     calculatePrsi();
     calculateUsc();
 
-
-    // console.log('VALUES: ', selfSalary, bikCarOMV, bikCarkm, bikRent, bikExp);
-
     button = document.getElementById('button');
     button.addEventListener('click', button);
 
-    taxDue = totalTax - taxCredits - prsi - usc;
+    taxDue = totalTax - taxCredits + prsi + usc;
     roundTaxDue = Math.round(taxDue);
-    result = roundTaxDue < 0 ? "Tax to be repayable" : "Tax Due";
-    console.log(result, roundTaxDue);
-    document.getElementById('taxDue').innerHTML = roundTaxDue;
+    result = roundTaxDue < 0 ? "Tax Refund" : "Tax Due";
+    absTaxDue = Math.abs(roundTaxDue);
+
+    console.log(result, absTaxDue);
+
+    document.getElementById('grossIncome').innerHTML = grossIncome;
+    document.getElementById('prsi').innerHTML = prsi;
+    document.getElementById('usc').innerHTML = usc;
+    
+    document.getElementById('taxDue').innerHTML = absTaxDue;
+    document.getElementById('result').innerHTML = result;
 }
 
 calculateTaxDue()
