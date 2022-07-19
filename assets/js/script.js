@@ -28,7 +28,7 @@ function calculatebikCar() {
     } else if (bikCarkm <= 48000) {
         bikCar = (bikCarOMV * 0.12);
     } else {
-        bikCar = (bikCarOMV * 0.08);
+        bikCar = (bikCarOMV * 0.06);
     }
 }
 
@@ -36,7 +36,7 @@ function calculatebikCar() {
 
 let grossIncome;
 function calculateGrossIncome() {
-    grossIncome = (selfSalary + bikCar + bikRent + bikExp);
+    grossIncome = Math.round(selfSalary + bikCar + bikRent + bikExp);
 }
 
 // calculating deductions
@@ -66,7 +66,7 @@ let weeklySalary;
 function calculatePrsi() {
     weeklySalary = parseFloat(grossIncome / 52);
     if (weeklySalary >= 352.01) {        
-        prsi = (weeklySalary*0.04) * 52;
+        prsi = Math.round((weeklySalary * 0.04) * 52);
     } else {
         prsi = 0;
     }
@@ -78,13 +78,13 @@ let usc;
 function calculateUsc() {
     
     if (grossIncome > 70044) {
-        usc = parseFloat(grossIncome - 70044) * 0.08 + (60.06 + 173.50 + 2221.07);
-    } else if (grossIncome <= 70044) {
-        usc = parseFloat(grossIncome - 20687) * 0.045 + (60.06 + 173.50);
-    } else if (grossIncome <= 20687) {
-        usc = parseFloat(grossIncome - 12012) * 0.02 + 60.06;        
+        usc = Math.round(parseFloat(grossIncome - 70044) * 0.08 + (60.06 + 173.50 + 2221.07));
+    } else if (grossIncome <= 70044 && grossIncome > 20687) {
+        usc = Math.round(parseFloat(grossIncome - 20687) * 0.045 + (60.06 + 173.50));
+    } else if (grossIncome <= 20687 && grossIncome > 12012) {
+        usc = Math.round(parseFloat(grossIncome - 12012) * 0.02 + 60.06);        
     } else if (grossIncome <= 12012) {
-        usc = parseFloat(grossIncome * 0.005);
+        usc = Math.round(parseFloat(grossIncome * 0.005));
     }
 
 }
@@ -96,6 +96,11 @@ let result;
 let button;
 let roundTaxDue;
 let absTaxDue;
+let netIncome;
+
+let netTaxDue;
+let result2;
+
 function calculateTaxDue() {
     selfSalary = parseInt(document.getElementById('selfSalary').value);
 
@@ -114,10 +119,14 @@ function calculateTaxDue() {
     button = document.getElementById('button');
     button.addEventListener('click', button);
 
-    taxDue = totalTax - taxCredits + prsi + usc;
-    roundTaxDue = Math.round(taxDue);
-    result = roundTaxDue < 0 ? "Tax Refund" : "Tax Due";
-    absTaxDue = Math.abs(roundTaxDue);
+    netTaxDue = (totalTax - taxCredits);
+    result2 = netTaxDue < 0 ? netTaxDue = 0 : netTaxDue = (totalTax - taxCredits);
+
+    taxDue = Math.round(netTaxDue + prsi + usc);    
+
+    result = taxDue < 0 ? "Tax Refund" : "Tax Due";
+    absTaxDue = Math.abs(taxDue);
+    netIncome = Math.abs(grossIncome - absTaxDue);
 
     console.log(result, absTaxDue);
 
@@ -127,6 +136,8 @@ function calculateTaxDue() {
     
     document.getElementById('taxDue').innerHTML = absTaxDue;
     document.getElementById('result').innerHTML = result;
+    document.getElementById('netIncome').innerHTML = netIncome;
+    
 }
 
 calculateTaxDue()
