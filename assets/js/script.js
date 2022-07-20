@@ -14,6 +14,7 @@ let bikCarkm;
 let bikRent;
 let bikExp;
 
+// calculating benefit in kind for motor cars
 let bikCar;
 function calculatebikCar() {    
     
@@ -55,12 +56,13 @@ function calculateTaxBands() {
     }
 }
 
-// Single Person + PAYE employee = 1,650 + 1,650 = 3,300 euros Tax Credits (as of Budget 2021) 
+// Single Person + PAYE employee = 1,650 + 1,650 = 3,300 euros Tax Credits (as of Budget 2021)
+// As per revenue.ie  
 let taxCredits = 3300;
 
+
 // Pay Related Social Insurance
-
-
+// As per revenue.ie
 let prsi;
 let weeklySalary;
 function calculatePrsi() {
@@ -101,7 +103,10 @@ let netIncome;
 let netTaxDue;
 let result2;
 
+let myVar = null;
+
 function calculateTaxDue() {
+        
     selfSalary = parseInt(document.getElementById('selfSalary').value);
 
     bikCarOMV = parseInt(document.getElementById('bikCarOMV').value);
@@ -110,6 +115,7 @@ function calculateTaxDue() {
     bikRent = parseInt(document.getElementById('bikRent').value);
     bikExp = parseInt(document.getElementById('bikExp').value);
 
+ 
     calculatebikCar();
     calculateGrossIncome();
     calculateTaxBands();

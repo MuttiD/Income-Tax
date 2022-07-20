@@ -26,7 +26,7 @@ h1 {
     font-family: 'Dosis', sans-serif;
 }
 
-/* styling input-box*/
+/* styling input-boxes */
 
 #inputs {
     font-family: 'Poppins', sans-serif;
@@ -56,6 +56,7 @@ h1 {
     margin-left: 6px;
 }
 
+
 /* styling footer */
 
 h4 {
@@ -65,7 +66,7 @@ h4 {
 }
 
 footer {
-    /*height: 150px;*/
+ 
     background-color: rgb(244, 244, 252);
 }
 
@@ -75,7 +76,7 @@ footer {
 
 .social-media > li {
     display: inline;
-    /*background-color: rgb(196, 93, 93);*/
+   
 }
 
 .social-media i {
@@ -83,8 +84,7 @@ footer {
     margin-bottom: 0;
     margin-top: 0;
     padding: 1%;
-    /*color: #3a3a3a;*/
-    /*background-color: rgb(90, 72, 72);*/
+
 }
 
 
