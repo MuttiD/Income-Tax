@@ -1,8 +1,8 @@
 console.log('connected!');
 
 document.addEventListener("DOMContentLoaded", function() {     // DOMContentLoaded = fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
-    console.log('DOM fully loaded and parsed')
-})
+    console.log('DOM fully loaded and parsed');
+});
 
 // declaring initial variables
 
@@ -96,14 +96,12 @@ function calculateUsc() {
 let taxDue;
 let result;
 let button;
-let roundTaxDue;
+
 let absTaxDue;
 let netIncome;
 
 let netTaxDue;
 let result2;
-
-let myVar = null;
 
 function calculateTaxDue() {
         
@@ -146,4 +144,4 @@ function calculateTaxDue() {
     
 }
 
-calculateTaxDue()
+calculateTaxDue();
