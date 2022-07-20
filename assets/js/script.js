@@ -130,7 +130,7 @@ function calculateTaxDue() {
 
     result = taxDue < 0 ? "Tax Refund" : "Tax Due";
     absTaxDue = Math.abs(taxDue);
-    netIncome = Math.abs(grossIncome - absTaxDue);
+    netIncome = Math.abs(grossIncome - absTaxDue - bikCar - bikExp - bikRent);
 
     console.log(result, absTaxDue);
 
