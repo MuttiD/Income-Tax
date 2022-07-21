@@ -105,7 +105,7 @@ The performance test returned a score of **99**.
 
 
 - The PRICEWATERHOUSECOOPERS (PwC) webpage was used to validate the tax computations figures for this site. The first is one of the most recognized financial firm in the world and they have their own Irish tax computation website (https://download.pwc.com/ie/budget-2022/income-tax-calculator.html). In this regard, this webpage was tested for three different salary incomes: €30k, €45k and €60k. The other BIK's were remained fixed to OMV = €15k, Business Travel = €47k, Rent = €5.6k and Services = €1k. The results and figures of this site matched all of their figures, therefore it passed the test, proving its reliability.
-<p>See below comparative PwC (left) vs Income-Tax (right) computations:</p>
+<p>See below comparative PwC (left) vs This site Income-Tax (right) computations:</p>
 
 ![Testing_at_€30k](/assets/images/testing_30k.png)
 
